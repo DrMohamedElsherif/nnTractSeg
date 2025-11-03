@@ -1,0 +1,6 @@
+data/
+HCP-nnUnetSetup/
+hcp_nnunet_env/
+*.pyc
+__pycache__/
+
