@@ -37,6 +37,7 @@ ls -ld $nnUNet_raw $nnUNet_preprocessed $nnUNet_results
 # ----------------------------------------
 echo "===== Testing nnUNetv2_train ====="
 #nnUNetv2_train --help
-nnUNetv2_train 001 3d_fullres 0
+#nnUNetv2_train 001 3d_fullres 1 --c 
+nnUNetv2_train 001 3d_fullres 4 -tr nnUNetTrainerNoDA --c 
 
 echo "===== nnUNetv2_train test completed ====="
