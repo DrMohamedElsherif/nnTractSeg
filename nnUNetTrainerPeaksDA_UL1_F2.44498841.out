@@ -1,0 +1,200 @@
+Sender: LSF System <lsfadmin@hdf19-gpu21.dkfz-heidelberg.de>
+Subject: Job 44498841: <nnUNetTrainerPeaksDA_UL1_F2> in cluster <ODCF> Exited
+
+Job <nnUNetTrainerPeaksDA_UL1_F2> was submitted from host <hdf19-gpu07.dkfz-heidelberg.de> by user <m512f> in cluster <ODCF> at Mon Nov 17 16:36:50 2025
+Job was executed on host(s) <hdf19-gpu21.dkfz-heidelberg.de>, in queue <gpu>, as user <m512f> in cluster <ODCF> at Mon Nov 17 16:36:51 2025
+</home/m512f> was used as the home directory.
+</omics/groups/OE0441/E132-Projekte/Projects/2025_Peretzke_Elsherif_nnTractSeg> was used as the working directory.
+Started at Mon Nov 17 16:36:51 2025
+Terminated at Mon Nov 17 17:11:26 2025
+Results reported at Mon Nov 17 17:11:26 2025
+
+Your job looked like:
+
+------------------------------------------------------------
+# LSBATCH: User input
+#BSUB -q gpu
+#BSUB -gpu "num=1:j_exclusive=yes:gmem=10.7G"
+#BSUB -J nnUNetTrainerPeaksDA_UL1_F2
+#BSUB -o nnUNetTrainerPeaksDA_UL1_F2.%J.out
+#BSUB -e nnUNetTrainerPeaksDA_UL1_F2.%J.err
+#BSUB -L /bin/bash
+
+source /omics/groups/OE0441/E132-Projekte/Projects/2025_Peretzke_Elsherif_nnTractSeg/hcp_nnunet_env/bin/activate
+
+export nnUNet_raw=/omics/groups/OE0441/E132-Projekte/Projects/2025_Peretzke_Elsherif_nnTractSeg/HCP-nnUnetSetup/nnunet_raw
+export nnUNet_preprocessed=/omics/groups/OE0441/E132-Projekte/Projects/2025_Peretzke_Elsherif_nnTractSeg/HCP-nnUnetSetup/nnunet_preprocessed
+export nnUNet_results=/omics/groups/OE0441/E132-Projekte/Projects/2025_Peretzke_Elsherif_nnTractSeg/HCP-nnUnetSetup/nnunet_results
+
+echo "Running trainer: nnUNetTrainerPeaksDA_UL1  Fold: 2"
+
+nnUNetv2_train 001 3d_fullres 2 -tr nnUNetTrainerPeaksDA_UL1 --c
+
+
+------------------------------------------------------------
+
+Exited with exit code 1.
+
+Resource usage summary:
+
+    CPU time :                                   5394.00 sec.
+    Max Memory :                                 11136 MB
+    Average Memory :                             9361.04 MB
+    Total Requested Memory :                     -
+    Delta Memory :                               -
+    Max Swap :                                   -
+    Max Processes :                              56
+    Max Threads :                                2028
+    Run time :                                   2073 sec.
+    Turnaround time :                            2076 sec.
+
+The output (if any) follows:
+
+Running trainer: nnUNetTrainerPeaksDA_UL1  Fold: 2
+=== USING DEVELOPMENT NNUNET - MODIFICATIONS ACTIVE ===
+
+############################
+INFO: You are using the old nnU-Net default plans. We have updated our recommendations. Please consider using those instead! Read more here: https://github.com/MIC-DKFZ/nnUNet/blob/master/documentation/resenc_presets.md
+############################
+
+Using device: cuda:0
+
+#######################################################################
+Please cite the following paper when using nnU-Net:
+Isensee, F., Jaeger, P. F., Kohl, S. A., Petersen, J., & Maier-Hein, K. H. (2021). nnU-Net: a self-configuring method for deep learning-based biomedical image segmentation. Nature methods, 18(2), 203-211.
+#######################################################################
+
+WARNING: Cannot continue training because there seems to be no checkpoint available to continue from. Starting a new training...
+2025-11-17 16:37:13.067555: Using torch.compile...
+2025-11-17 16:37:15.937360: Peak-specific DA: ONLY Gaussian noise - no spatial augmentations
+2025-11-17 16:37:15.941092: Peak-specific DA: noise variance (0, 0.001)
+2025-11-17 16:37:15.942762: Peak-specific DA: rotation DISABLED
+2025-11-17 16:37:15.944361: Peak-specific DA: mirroring DISABLED
+2025-11-17 16:37:15.946660: Using splits from existing split file: /omics/groups/OE0441/E132-Projekte/Projects/2025_Peretzke_Elsherif_nnTractSeg/HCP-nnUnetSetup/nnunet_preprocessed/Dataset001_OpticRadiation/splits_final.json
+2025-11-17 16:37:15.949682: The split file contains 4 splits.
+2025-11-17 16:37:15.951765: Desired fold for training: 2
+2025-11-17 16:37:15.953394: This split has 63 training and 21 validation cases.
+using pin_memory on device 0
+using pin_memory on device 0
+
+This is the configuration used by this training:
+Configuration name: 3d_fullres
+ {'data_identifier': 'nnUNetPlans_3d_fullres', 'preprocessor_name': 'DefaultPreprocessor', 'batch_size': 3, 'patch_size': [112, 144, 112], 'median_image_size_in_voxels': [110.0, 142.0, 109.0], 'spacing': [1.25, 1.25, 1.25], 'normalization_schemes': ['ZScoreNormalization', 'ZScoreNormalization', 'ZScoreNormalization', 'ZScoreNormalization', 'ZScoreNormalization', 'ZScoreNormalization', 'ZScoreNormalization', 'ZScoreNormalization', 'ZScoreNormalization'], 'use_mask_for_norm': [True, True, True, True, True, True, True, True, True], 'resampling_fn_data': 'resample_data_or_seg_to_shape', 'resampling_fn_seg': 'resample_data_or_seg_to_shape', 'resampling_fn_data_kwargs': {'is_seg': False, 'order': 3, 'order_z': 0, 'force_separate_z': None}, 'resampling_fn_seg_kwargs': {'is_seg': True, 'order': 1, 'order_z': 0, 'force_separate_z': None}, 'resampling_fn_probabilities': 'resample_data_or_seg_to_shape', 'resampling_fn_probabilities_kwargs': {'is_seg': False, 'order': 1, 'order_z': 0, 'force_separate_z': None}, 'architecture': {'network_class_name': 'dynamic_network_architectures.architectures.unet.PlainConvUNet', 'arch_kwargs': {'n_stages': 5, 'features_per_stage': [32, 64, 128, 256, 320], 'conv_op': 'torch.nn.modules.conv.Conv3d', 'kernel_sizes': [[3, 3, 3], [3, 3, 3], [3, 3, 3], [3, 3, 3], [3, 3, 3]], 'strides': [[1, 1, 1], [2, 2, 2], [2, 2, 2], [2, 2, 2], [2, 2, 2]], 'n_conv_per_stage': [2, 2, 2, 2, 2], 'n_conv_per_stage_decoder': [2, 2, 2, 2], 'conv_bias': True, 'norm_op': 'torch.nn.modules.instancenorm.InstanceNorm3d', 'norm_op_kwargs': {'eps': 1e-05, 'affine': True}, 'dropout_op': None, 'dropout_op_kwargs': None, 'nonlin': 'torch.nn.LeakyReLU', 'nonlin_kwargs': {'inplace': True}}, '_kw_requires_import': ['conv_op', 'norm_op', 'dropout_op', 'nonlin']}, 'batch_dice': False} 
+
+These are the global plan.json settings:
+ {'dataset_name': 'Dataset001_OpticRadiation', 'plans_name': 'nnUNetPlans', 'original_median_spacing_after_transp': [1.25, 1.25, 1.25], 'original_median_shape_after_transp': [110, 142, 109], 'image_reader_writer': 'SimpleITKIO', 'transpose_forward': [0, 1, 2], 'transpose_backward': [0, 1, 2], 'experiment_planner_used': 'ExperimentPlanner', 'label_manager': 'LabelManager', 'foreground_intensity_properties_per_channel': {'0': {'max': 1.3615518808364868, 'mean': 0.01820019632577896, 'median': 0.029035648331046104, 'min': -1.3842341899871826, 'percentile_00_5': -0.6789339780807495, 'percentile_99_5': 0.695829451084137, 'std': 0.24701739847660065}, '1': {'max': 1.5671621561050415, 'mean': 0.1262681633234024, 'median': 0.09237576276063919, 'min': -1.3237757682800293, 'percentile_00_5': -0.7000942230224609, 'percentile_99_5': 0.9869518280029297, 'std': 0.33626481890678406}, '2': {'max': 1.754754662513733, 'mean': 0.13166052103042603, 'median': 0.10267354547977448, 'min': -1.430443286895752, 'percentile_00_5': -0.46143874526023865, 'percentile_99_5': 0.9457844495773315, 'std': 0.24682177603244781}, '3': {'max': 0.6092202663421631, 'mean': 0.01700282283127308, 'median': 0.009559554979205132, 'min': -0.5942251682281494, 'percentile_00_5': -0.2618652880191803, 'percentile_99_5': 0.2871400815248393, 'std': 0.09276587516069412}, '4': {'max': 0.6957094669342041, 'mean': 0.030059710144996643, 'median': 0.010497436858713627, 'min': -0.5651710033416748, 'percentile_00_5': -0.2381410002708435, 'percentile_99_5': 0.3640892207622528, 'std': 0.09851563721895218}, '5': {'max': 0.7087550759315491, 'mean': 0.04425136372447014, 'median': 0.027164626866579056, 'min': -0.5559309124946594, 'percentile_00_5': -0.2289333939552307, 'percentile_99_5': 0.3658479154109955, 'std': 0.0939948558807373}, '6': {'max': 0.407470703125, 'mean': 0.008422348648309708, 'median': 0.0030890617053955793, 'min': -0.40715935826301575, 'percentile_00_5': -0.1477261632680893, 'percentile_99_5': 0.18107302486896515, 'std': 0.04327812045812607}, '7': {'max': 0.43107879161834717, 'mean': 0.00911305844783783, 'median': 0.0031662071123719215, 'min': -0.3632819950580597, 'percentile_00_5': -0.13035820424556732, 'percentile_99_5': 0.18514229357242584, 'std': 0.041403818875551224}, '8': {'max': 0.5227912664413452, 'mean': 0.010401226580142975, 'median': 0.0032821600325405598, 'min': -0.40738415718078613, 'percentile_00_5': -0.14058415591716766, 'percentile_99_5': 0.1834312528371811, 'std': 0.04213809594511986}}} 
+
+2025-11-17 16:37:23.056101: Unable to plot network architecture: nnUNet_compile is enabled!
+2025-11-17 16:37:23.081683: 
+2025-11-17 16:37:23.084752: Epoch 0
+2025-11-17 16:37:23.087770: Current learning rate: 0.01
+2025-11-17 16:43:12.284760: train_loss -0.1123
+2025-11-17 16:43:12.289371: val_loss -0.5525
+2025-11-17 16:43:12.291509: Pseudo dice [np.float32(0.6999), np.float32(0.563)]
+2025-11-17 16:43:12.294592: Epoch time: 349.21 s
+2025-11-17 16:43:12.297408: Yayy! New best EMA pseudo Dice: 0.6313999891281128
+2025-11-17 16:43:14.500527: 
+2025-11-17 16:43:14.503540: Epoch 1
+2025-11-17 16:43:14.506026: Current learning rate: 0.00999
+2025-11-17 16:47:49.010576: train_loss -0.688
+2025-11-17 16:47:49.016510: val_loss -0.7363
+2025-11-17 16:47:49.018770: Pseudo dice [np.float32(0.8015), np.float32(0.7728)]
+2025-11-17 16:47:49.020654: Epoch time: 274.51 s
+2025-11-17 16:47:49.022998: Yayy! New best EMA pseudo Dice: 0.6470000147819519
+2025-11-17 16:47:51.501212: 
+2025-11-17 16:47:51.503407: Epoch 2
+2025-11-17 16:47:51.505472: Current learning rate: 0.00998
+2025-11-17 16:52:26.206208: train_loss -0.8011
+2025-11-17 16:52:26.210758: val_loss -0.7657
+2025-11-17 16:52:26.213139: Pseudo dice [np.float32(0.8211), np.float32(0.7939)]
+2025-11-17 16:52:26.219463: Epoch time: 274.71 s
+2025-11-17 16:52:26.225025: Yayy! New best EMA pseudo Dice: 0.663100004196167
+2025-11-17 16:52:28.796261: 
+2025-11-17 16:52:28.799400: Epoch 3
+2025-11-17 16:52:28.805033: Current learning rate: 0.00997
+2025-11-17 16:57:03.555099: train_loss -0.8408
+2025-11-17 16:57:03.560596: val_loss -0.7787
+2025-11-17 16:57:03.562992: Pseudo dice [np.float32(0.8315), np.float32(0.8025)]
+2025-11-17 16:57:03.573676: Epoch time: 274.76 s
+2025-11-17 16:57:03.577008: Yayy! New best EMA pseudo Dice: 0.6784999966621399
+2025-11-17 16:57:06.112602: 
+2025-11-17 16:57:06.120265: Epoch 4
+2025-11-17 16:57:06.127493: Current learning rate: 0.00996
+2025-11-17 17:01:40.921577: train_loss -0.8607
+2025-11-17 17:01:40.929248: val_loss -0.7797
+2025-11-17 17:01:40.933491: Pseudo dice [np.float32(0.8294), np.float32(0.8054)]
+2025-11-17 17:01:40.938812: Epoch time: 274.81 s
+2025-11-17 17:01:40.945428: Yayy! New best EMA pseudo Dice: 0.6923999786376953
+2025-11-17 17:01:43.669861: 
+2025-11-17 17:01:43.675460: Epoch 5
+2025-11-17 17:01:43.678776: Current learning rate: 0.00995
+2025-11-17 17:06:18.596715: failed to log:  (<class 'OSError'>, OSError(28, 'No space left on device'), <traceback object at 0x151913620840>)
+2025-11-17 17:06:18.596715: failed to log:  (<class 'OSError'>, OSError(28, 'No space left on device'), <traceback object at 0x1519118ca580>)
+2025-11-17 17:06:18.596715: failed to log:  (<class 'OSError'>, OSError(28, 'No space left on device'), <traceback object at 0x151913620840>)
+2025-11-17 17:06:18.596715: failed to log:  (<class 'OSError'>, OSError(28, 'No space left on device'), <traceback object at 0x1519118ca580>)
+2025-11-17 17:06:18.596715: failed to log:  (<class 'OSError'>, OSError(28, 'No space left on device'), <traceback object at 0x151913620840>)
+2025-11-17 17:06:18.596715: train_loss -0.8737
+2025-11-17 17:06:21.186369: failed to log:  (<class 'OSError'>, OSError(28, 'No space left on device'), <traceback object at 0x151900dad040>)
+2025-11-17 17:06:21.186369: failed to log:  (<class 'OSError'>, OSError(28, 'No space left on device'), <traceback object at 0x15191368d380>)
+2025-11-17 17:06:21.186369: failed to log:  (<class 'OSError'>, OSError(28, 'No space left on device'), <traceback object at 0x151900dad040>)
+2025-11-17 17:06:21.186369: failed to log:  (<class 'OSError'>, OSError(28, 'No space left on device'), <traceback object at 0x1518995fb480>)
+2025-11-17 17:06:21.186369: failed to log:  (<class 'OSError'>, OSError(28, 'No space left on device'), <traceback object at 0x151900dad040>)
+2025-11-17 17:06:21.186369: val_loss -0.7836
+2025-11-17 17:06:23.762336: failed to log:  (<class 'OSError'>, OSError(28, 'No space left on device'), <traceback object at 0x1519014bc600>)
+2025-11-17 17:06:23.762336: failed to log:  (<class 'OSError'>, OSError(28, 'No space left on device'), <traceback object at 0x15191368d380>)
+2025-11-17 17:06:23.762336: failed to log:  (<class 'OSError'>, OSError(28, 'No space left on device'), <traceback object at 0x1519014bc600>)
+2025-11-17 17:06:23.762336: failed to log:  (<class 'OSError'>, OSError(28, 'No space left on device'), <traceback object at 0x15191368d380>)
+2025-11-17 17:06:23.762336: failed to log:  (<class 'OSError'>, OSError(28, 'No space left on device'), <traceback object at 0x15189875e440>)
+2025-11-17 17:06:23.762336: Pseudo dice [np.float32(0.8352), np.float32(0.8085)]
+2025-11-17 17:06:26.318196: failed to log:  (<class 'OSError'>, OSError(28, 'No space left on device'), <traceback object at 0x151912882400>)
+2025-11-17 17:06:26.318196: failed to log:  (<class 'OSError'>, OSError(28, 'No space left on device'), <traceback object at 0x15191284c680>)
+2025-11-17 17:06:26.318196: failed to log:  (<class 'OSError'>, OSError(28, 'No space left on device'), <traceback object at 0x151912882c80>)
+2025-11-17 17:06:26.318196: failed to log:  (<class 'OSError'>, OSError(28, 'No space left on device'), <traceback object at 0x15191284c680>)
+2025-11-17 17:06:26.318196: failed to log:  (<class 'OSError'>, OSError(28, 'No space left on device'), <traceback object at 0x151900dad040>)
+2025-11-17 17:06:26.318196: Epoch time: 274.93 s
+2025-11-17 17:06:28.857623: failed to log:  (<class 'OSError'>, OSError(28, 'No space left on device'), <traceback object at 0x151900dad040>)
+2025-11-17 17:06:28.857623: failed to log:  (<class 'OSError'>, OSError(28, 'No space left on device'), <traceback object at 0x15191368d380>)
+2025-11-17 17:06:28.857623: failed to log:  (<class 'OSError'>, OSError(28, 'No space left on device'), <traceback object at 0x15189875e440>)
+2025-11-17 17:06:28.857623: failed to log:  (<class 'OSError'>, OSError(28, 'No space left on device'), <traceback object at 0x151900d587c0>)
+2025-11-17 17:06:28.857623: failed to log:  (<class 'OSError'>, OSError(28, 'No space left on device'), <traceback object at 0x15189875e440>)
+2025-11-17 17:06:28.857623: Yayy! New best EMA pseudo Dice: 0.705299973487854
+2025-11-17 17:06:33.910911: failed to log:  (<class 'OSError'>, OSError(28, 'No space left on device'), <traceback object at 0x1519128082c0>)
+2025-11-17 17:06:33.910911: 
+2025-11-17 17:06:34.417934: Epoch 6
+2025-11-17 17:06:34.419626: Current learning rate: 0.00995
+2025-11-17 17:11:08.533783: failed to log:  (<class 'OSError'>, OSError(28, 'No space left on device'), <traceback object at 0x151913645840>)
+2025-11-17 17:11:08.533783: failed to log:  (<class 'OSError'>, OSError(28, 'No space left on device'), <traceback object at 0x1519127b6f80>)
+2025-11-17 17:11:08.533783: failed to log:  (<class 'OSError'>, OSError(28, 'No space left on device'), <traceback object at 0x151913645840>)
+2025-11-17 17:11:08.533783: failed to log:  (<class 'OSError'>, OSError(28, 'No space left on device'), <traceback object at 0x15191271c9c0>)
+2025-11-17 17:11:08.533783: failed to log:  (<class 'OSError'>, OSError(28, 'No space left on device'), <traceback object at 0x1519136a7380>)
+2025-11-17 17:11:08.533783: train_loss -0.8826
+2025-11-17 17:11:11.109646: failed to log:  (<class 'OSError'>, OSError(28, 'No space left on device'), <traceback object at 0x15191275e300>)
+2025-11-17 17:11:11.109646: failed to log:  (<class 'OSError'>, OSError(28, 'No space left on device'), <traceback object at 0x1519127b6f80>)
+2025-11-17 17:11:11.109646: failed to log:  (<class 'OSError'>, OSError(28, 'No space left on device'), <traceback object at 0x15191275e300>)
+2025-11-17 17:11:11.109646: failed to log:  (<class 'OSError'>, OSError(28, 'No space left on device'), <traceback object at 0x1519127b6f80>)
+2025-11-17 17:11:11.109646: failed to log:  (<class 'OSError'>, OSError(28, 'No space left on device'), <traceback object at 0x15191273bd00>)
+2025-11-17 17:11:11.109646: val_loss -0.7822
+2025-11-17 17:11:13.757954: failed to log:  (<class 'OSError'>, OSError(28, 'No space left on device'), <traceback object at 0x1518984bc600>)
+2025-11-17 17:11:13.757954: failed to log:  (<class 'OSError'>, OSError(28, 'No space left on device'), <traceback object at 0x151912757200>)
+2025-11-17 17:11:13.757954: failed to log:  (<class 'OSError'>, OSError(28, 'No space left on device'), <traceback object at 0x15191369d040>)
+2025-11-17 17:11:13.757954: failed to log:  (<class 'OSError'>, OSError(28, 'No space left on device'), <traceback object at 0x151912757200>)
+2025-11-17 17:11:13.757954: failed to log:  (<class 'OSError'>, OSError(28, 'No space left on device'), <traceback object at 0x151913645840>)
+2025-11-17 17:11:13.757954: Pseudo dice [np.float32(0.8346), np.float32(0.8076)]
+2025-11-17 17:11:16.304254: failed to log:  (<class 'OSError'>, OSError(28, 'No space left on device'), <traceback object at 0x15191275e300>)
+2025-11-17 17:11:16.304254: failed to log:  (<class 'OSError'>, OSError(28, 'No space left on device'), <traceback object at 0x1519127f4680>)
+2025-11-17 17:11:16.304254: failed to log:  (<class 'OSError'>, OSError(28, 'No space left on device'), <traceback object at 0x15191275e300>)
+2025-11-17 17:11:16.304254: failed to log:  (<class 'OSError'>, OSError(28, 'No space left on device'), <traceback object at 0x1519127f4680>)
+2025-11-17 17:11:16.304254: failed to log:  (<class 'OSError'>, OSError(28, 'No space left on device'), <traceback object at 0x15191275e300>)
+2025-11-17 17:11:16.304254: Epoch time: 274.62 s
+2025-11-17 17:11:18.852077: failed to log:  (<class 'OSError'>, OSError(28, 'No space left on device'), <traceback object at 0x15191280cb00>)
+2025-11-17 17:11:18.852077: failed to log:  (<class 'OSError'>, OSError(28, 'No space left on device'), <traceback object at 0x151912757200>)
+2025-11-17 17:11:18.852077: failed to log:  (<class 'OSError'>, OSError(28, 'No space left on device'), <traceback object at 0x15191280cb00>)
+2025-11-17 17:11:18.852077: failed to log:  (<class 'OSError'>, OSError(28, 'No space left on device'), <traceback object at 0x151912757200>)
+2025-11-17 17:11:18.852077: failed to log:  (<class 'OSError'>, OSError(28, 'No space left on device'), <traceback object at 0x1518984bc600>)
+2025-11-17 17:11:18.852077: Yayy! New best EMA pseudo Dice: 0.7168999910354614
+
+
+PS:
+
+Read file <nnUNetTrainerPeaksDA_UL1_F2.44498841.err> for stderr output of this job.
+

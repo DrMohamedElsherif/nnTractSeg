@@ -1,0 +1,78 @@
+/omics/groups/OE0441/E132-Projekte/Projects/2025_Peretzke_Elsherif_nnTractSeg/hcp_nnunet_env/lib/python3.11/site-packages/torch/_inductor/lowering.py:7242: UserWarning: 
+Online softmax is disabled on the fly since Inductor decides to
+split the reduction. Cut an issue to PyTorch if this is an
+important use case and you want to speed it up with online
+softmax.
+
+  warnings.warn(
+/omics/groups/OE0441/E132-Projekte/Projects/2025_Peretzke_Elsherif_nnTractSeg/hcp_nnunet_env/lib/python3.11/site-packages/torch/_inductor/lowering.py:7242: UserWarning: 
+Online softmax is disabled on the fly since Inductor decides to
+split the reduction. Cut an issue to PyTorch if this is an
+important use case and you want to speed it up with online
+softmax.
+
+  warnings.warn(
+/omics/groups/OE0441/E132-Projekte/Projects/2025_Peretzke_Elsherif_nnTractSeg/hcp_nnunet_env/lib/python3.11/site-packages/torch/_inductor/lowering.py:7242: UserWarning: 
+Online softmax is disabled on the fly since Inductor decides to
+split the reduction. Cut an issue to PyTorch if this is an
+important use case and you want to speed it up with online
+softmax.
+
+  warnings.warn(
+/omics/groups/OE0441/E132-Projekte/Projects/2025_Peretzke_Elsherif_nnTractSeg/hcp_nnunet_env/lib/python3.11/site-packages/torch/_inductor/lowering.py:7242: UserWarning: 
+Online softmax is disabled on the fly since Inductor decides to
+split the reduction. Cut an issue to PyTorch if this is an
+important use case and you want to speed it up with online
+softmax.
+
+  warnings.warn(
+Traceback (most recent call last):
+  File "/omics/groups/OE0441/E132-Projekte/Projects/2025_Peretzke_Elsherif_nnTractSeg/hcp_nnunet_env/lib/python3.11/site-packages/torch/serialization.py", line 967, in save
+    _save(
+  File "/omics/groups/OE0441/E132-Projekte/Projects/2025_Peretzke_Elsherif_nnTractSeg/hcp_nnunet_env/lib/python3.11/site-packages/torch/serialization.py", line 1215, in _save
+    zip_file.write_record("data.pkl", data_value, len(data_value))
+RuntimeError: [enforce fail at inline_container.cc:858] . PytorchStreamWriter failed writing file data.pkl: file write failed
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/omics/groups/OE0441/E132-Projekte/Projects/2025_Peretzke_Elsherif_nnTractSeg/hcp_nnunet_env/bin/nnUNetv2_train", line 8, in <module>
+    sys.exit(run_training_entry())
+             ^^^^^^^^^^^^^^^^^^^^
+  File "/home/m512f/nnUNet/nnunetv2/run/run_training.py", line 267, in run_training_entry
+    run_training(args.dataset_name_or_id, args.configuration, args.fold, args.tr, args.p, args.pretrained_weights,
+  File "/home/m512f/nnUNet/nnunetv2/run/run_training.py", line 207, in run_training
+    nnunet_trainer.run_training()
+  File "/home/m512f/nnUNet/nnunetv2/training/nnUNetTrainer/nnUNetTrainer.py", line 1383, in run_training
+    self.on_epoch_end()
+  File "/home/m512f/nnUNet/nnunetv2/training/nnUNetTrainer/nnUNetTrainer.py", line 1144, in on_epoch_end
+    self.save_checkpoint(join(self.output_folder, 'checkpoint_best.pth'))
+  File "/home/m512f/nnUNet/nnunetv2/training/nnUNetTrainer/nnUNetTrainer.py", line 1172, in save_checkpoint
+    torch.save(checkpoint, filename)
+  File "/omics/groups/OE0441/E132-Projekte/Projects/2025_Peretzke_Elsherif_nnTractSeg/hcp_nnunet_env/lib/python3.11/site-packages/torch/serialization.py", line 966, in save
+    with _open_zipfile_writer(f) as opened_zipfile:
+  File "/omics/groups/OE0441/E132-Projekte/Projects/2025_Peretzke_Elsherif_nnTractSeg/hcp_nnunet_env/lib/python3.11/site-packages/torch/serialization.py", line 798, in __exit__
+    self.file_like.write_end_of_file()
+RuntimeError: [enforce fail at inline_container.cc:664] . unexpected pos 64 vs 0
+Exception in thread Thread-2 (results_loop):
+Traceback (most recent call last):
+  File "/usr/lib/python3.11/threading.py", line 1038, in _bootstrap_inner
+    self.run()
+  File "/usr/lib/python3.11/threading.py", line 975, in run
+    self._target(*self._args, **self._kwargs)
+  File "/omics/groups/OE0441/E132-Projekte/Projects/2025_Peretzke_Elsherif_nnTractSeg/hcp_nnunet_env/lib/python3.11/site-packages/batchgenerators/dataloading/nondet_multi_threaded_augmenter.py", line 125, in results_loop
+    raise e
+  File "/omics/groups/OE0441/E132-Projekte/Projects/2025_Peretzke_Elsherif_nnTractSeg/hcp_nnunet_env/lib/python3.11/site-packages/batchgenerators/dataloading/nondet_multi_threaded_augmenter.py", line 103, in results_loop
+    raise RuntimeError("One or more background workers are no longer alive. Exiting. Please check the "
+RuntimeError: One or more background workers are no longer alive. Exiting. Please check the print statements above for the actual error message
+Exception in thread Thread-1 (results_loop):
+Traceback (most recent call last):
+  File "/usr/lib/python3.11/threading.py", line 1038, in _bootstrap_inner
+    self.run()
+  File "/usr/lib/python3.11/threading.py", line 975, in run
+    self._target(*self._args, **self._kwargs)
+  File "/omics/groups/OE0441/E132-Projekte/Projects/2025_Peretzke_Elsherif_nnTractSeg/hcp_nnunet_env/lib/python3.11/site-packages/batchgenerators/dataloading/nondet_multi_threaded_augmenter.py", line 125, in results_loop
+    raise e
+  File "/omics/groups/OE0441/E132-Projekte/Projects/2025_Peretzke_Elsherif_nnTractSeg/hcp_nnunet_env/lib/python3.11/site-packages/batchgenerators/dataloading/nondet_multi_threaded_augmenter.py", line 103, in results_loop
+    raise RuntimeError("One or more background workers are no longer alive. Exiting. Please check the "
+RuntimeError: One or more background workers are no longer alive. Exiting. Please check the print statements above for the actual error message

@@ -1,3 +1,5 @@
+# splitpeaks.py
+
 import os
 import nibabel as nib
 from tqdm import tqdm

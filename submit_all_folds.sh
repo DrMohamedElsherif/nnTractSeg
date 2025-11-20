@@ -48,4 +48,4 @@ EOF
 
 done
 
-echo "✅ All training jobs submitted! Check with: bjobs"
+echo "All training jobs submitted! Check with: bjobs"

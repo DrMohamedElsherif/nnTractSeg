@@ -1,3 +1,5 @@
+# prepare_hcp_for_nnunet.py
+
 import os
 import re
 import subprocess
