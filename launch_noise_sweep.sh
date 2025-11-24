@@ -5,7 +5,7 @@
 #  - all 12 noise-variance trainers (UL1 → H2)
 #  - ONLY fold 2 for testing
 #
-# Total jobs: 12 (instead of 48)
+# Total jobs: 12 
 # ===============================================================
 
 TRAINERS=(

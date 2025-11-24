@@ -1,3 +1,4 @@
+# submit_all_folds_fa.sh
 #!/bin/bash
 
 # Folds to train
@@ -12,27 +13,10 @@ export nnUNet_results=/omics/groups/OE0441/E132-Projekte/Projects/2025_Peretzke_
 # Loop through folds and submit jobs
 for FOLD in "${FOLDS[@]}"; do
 
-# ---------------- TRAIN WITH AUGMENTATION (default trainer) ---------------- #
+# ---------------- TRAIN ON FA WITHOUT AUGMENTATION ---------------- #
 bsub <<EOF
 #BSUB -q gpu
 #BSUB -gpu "num=1:j_exclusive=yes:gmem=30G"
-#BSUB -J nnUNet_AUG_f${FOLD}
-#BSUB -o nnUNet_AUG_f${FOLD}.%J.out
-#BSUB -e nnUNet_AUG_f${FOLD}.%J.err
-#BSUB -L /bin/bash
-
-source $ENV_PATH
-export nnUNet_raw=$nnUNet_raw
-export nnUNet_preprocessed=$nnUNet_preprocessed
-export nnUNet_results=$nnUNet_results
-
-nnUNetv2_train 001 3d_fullres ${FOLD} --c
-EOF
-
-# ---------------- TRAIN WITHOUT AUGMENTATION ---------------- #
-bsub <<EOF
-#BSUB -q gpu
-#BSUB -gpu "num=1:j_exclusive=yes:gmem=10.7G"
 #BSUB -J nnUNet_NoAUG_f${FOLD}
 #BSUB -o nnUNet_NoAUG_f${FOLD}.%J.out
 #BSUB -e nnUNet_NoAUG_f${FOLD}.%J.err
@@ -43,7 +27,7 @@ export nnUNet_raw=$nnUNet_raw
 export nnUNet_preprocessed=$nnUNet_preprocessed
 export nnUNet_results=$nnUNet_results
 
-nnUNetv2_train 001 3d_fullres ${FOLD} -tr nnUNetTrainerNoDA --c
+nnUNetv2_train 002 3d_fullres ${FOLD} -tr nnUNetTrainerNoDA --c
 EOF
 
 done
